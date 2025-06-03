@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MY SUPER HERO APP</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0a0a;
+      color: #ffffff;
+    }
+
+    header {
+      background-color: #001f3f;
+      padding: 20px;
+      text-align: center;
+      color: #00aced;
+      font-size: 2em;
+      font-weight: bold;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 30px;
+    }
+
+    .hero-card {
+      background-color: #111;
+      border: 2px solid #0074D9;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .hero-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #0074D9;
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .hero-name {
+      padding: 10px;
+      background-color: #001f3f;
+      color: #00aced;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .view-button {
+      background-color: #00aced;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px 0 20px;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .view-button:hover {
+      background-color: #0074D9;
+      color: white;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+      background-color: #111;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #0074D9;
+      width: 80%;
+      max-width: 600px;
+      color: white;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .close {
+      color: #00aced;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #ffffff;
+    }
+
+    .hero-description {
+      margin-top: 10px;
+      font-size: 1em;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+<header>MY SUPER HERO APP</header>
+
+<div class="gallery">
+  <!-- Iron Man -->
+  <div class="hero-card">
+    <img src="images/iRon man.jfif" alt="Iron Man" />
+    <div class="hero-name">Iron Man</div>
+    <button class="view-button" onclick="openModal('Iron Man', 'A genius billionaire and inventor, Tony Stark built a high-tech suit of armor that gives him flight, super strength, and advanced weaponry. He fights for justice using science and technology.', 'Genius intellect, powered armor suit, flight, repulsor rays')">View</button>
+  </div>
+
+  <!-- Batman -->
+  <div class="hero-card">
+    <img src="images/Batman.jfif" alt="Batman" />
+    <div class="hero-name">Batman</div>
+    <button class="view-button" onclick="openModal('Batman', 'Bruce Wayne, a billionaire vigilante, uses his detective skills, martial arts expertise, and advanced technology to fight crime in Gotham City.', 'Peak human conditioning, martial arts, detective skills, high-tech gadgets')">View</button>
+  </div>
+
+  <!-- Spiderman -->
+  <div class="hero-card">
+    <img src="images/spiderman.jpg" alt="Spiderman" />
+    <div class="hero-name">Spiderman</div>
+    <button class="view-button" onclick="openModal('Spiderman', 'Peter Parker gains spider-like abilities after a radioactive spider bite. He uses his powers to protect New York City while maintaining a normal life.', 'Wall-crawling, super agility, spider-sense, web-shooters')">View</button>
+  </div>
+
+  <!-- X-Man -->
+  <div class="hero-card">
+    <img src="images/xman.jpg" alt="X-Man" />
+    <div class="hero-name">X-Man</div>
+    <button class="view-button" onclick="openModal('X-Man', 'A powerful mutant from the X-Men universe, X-Man (Nate Grey) possesses immense telepathic and telekinetic powers, making him one of the most dangerous beings on Earth.', 'Telepathy, telekinesis, energy manipulation, reality alteration')">View</button>
+  </div>
+</div>
+
+<!-- Modal Structure -->
+<div id="heroModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <div class="hero-description" id="modalDescription"></div>
+    <p><strong>Super Powers:</strong> <span id="modalPowers"></span></p>
+  </div>
+</div>
+
+<script>
+  function openModal(name, description, powers) {
+    document.getElementById('modalTitle').innerText = name;
+    document.getElementById('modalDescription').innerText = description;
+    document.getElementById('modalPowers').innerText = powers;
+    document.getElementById('heroModal').style.display = 'block';
+  }
+
+  function closeModal() {
+    document.getElementById('heroModal').style.display = 'none';
+  }
+
+  // Optional: Close modal when clicking outside the box
+  window.onclick = function(event) {
+    const modal = document.getElementById('heroModal');
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>

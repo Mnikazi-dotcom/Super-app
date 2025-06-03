@@ -1,0 +1,153 @@
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d0d0d;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #001f3f, #003366);
+  padding: 25px 15px;
+  text-align: center;
+  color: #00aced;
+  font-size: 2.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Gallery Grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Hero Card */
+.hero-card {
+  background-color: #1a1a1a;
+  border: 2px solid #005ea6;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 116, 217, 0.6);
+}
+
+/* Hero Image */
+.hero-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 2px solid #005ea6;
+}
+
+/* Hero Name */
+.hero-name {
+  background-color: #002244;
+  padding: 12px;
+  color: #00aced;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* View Button */
+.view-button {
+  background-color: #00aced;
+  color: black;
+  border: none;
+  padding: 10px 25px;
+  margin: 15px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.view-button:hover {
+  background-color: #0074D9;
+  color: #fff;
+}
+
+/* Modal Overlay */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #1a1a1a;
+  margin: 5% auto;
+  padding: 25px;
+  border: 2px solid #0074D9;
+  width: 90%;
+  max-width: 600px;
+  color: white;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 0 20px #0074D9;
+}
+
+/* Close Button */
+.close {
+  color: #00aced;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close:hover {
+  color: white;
+}
+
+/* Hero Description */
+.hero-description {
+  margin-top: 15px;
+  font-size: 1.05em;
+}
+
+/* Responsive Modal */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 95%;
+    margin: 20% auto;
+    padding: 20px;
+  }
+
+  .gallery {
+    padding: 20px;
+  }
+
+  header {
+    font-size: 2em;
+    padding: 20px 10px;
+  }
+}
